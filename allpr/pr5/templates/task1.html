@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Counter - Minimum Coins</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='task1.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cash Counter - Minimum Coins Calculation</h1>
+        <form method="POST">
+            <label for="value">Enter the value (in Rs.):</label>
+            <input type="number" id="value" name="value" required>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if result is not none %}
+        <div class="result">
+            <h2>Result</h2>
+            <p>Minimum number of coins required for Rs. {{ value }}: <strong>{{ result }}</strong></p>
+            <h3>Comparative Analysis</h3>
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Comparative Analysis Graph">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

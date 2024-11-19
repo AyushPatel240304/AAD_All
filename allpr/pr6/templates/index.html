@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Multiplication Optimization</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #bdbdbd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #e0e0e0;
+        }
+        h1 {
+            color: #333;
+        }
+        .matrix-info {
+            font-weight: bold;
+            color: #444;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Matrix Multiplication Optimization</h1>
+    <form method="POST">
+        <label for="matrix_dims">Enter matrix dimensions (comma-separated):</label><br>
+        <input type="text" id="matrix_dims" name="matrix_dims" required>
+        <button type="submit">Compute</button>
+    </form>
+
+    {% if total_operations is not none %}
+        <h2>Computation Results</h2>
+        {% if total_matrices is not none %}
+            <p class="matrix-info">Total matrices: {{ total_matrices }}</p>
+        {% endif %}
+        <p>Minimum number of scalar multiplications: {{ total_operations }}</p>
+        <p>Optimal parenthesization sequence: {{ optimal_sequence }}</p>
+
+        {% if cost_matrix is not none %}
+            <h3>Cost Matrix (M)</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    {% for i in range(total_matrices) %}
+                        <th>Matrix {{ i + 1 }}</th>
+                    {% endfor %}
+                </tr>
+                {% for i in range(total_matrices) %}
+                    <tr>
+                        <th>Matrix {{ i + 1 }}</th>
+                        {% for j in range(total_matrices) %}
+                            <td>{{ cost_matrix[i][j] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

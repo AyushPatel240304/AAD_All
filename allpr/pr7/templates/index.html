@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knapsack Optimizer</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            margin: 30px;
+            background-color: #eef2f7;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        form {
+            margin-bottom: 25px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 12px;
+            width: 280px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin-top: 25px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+        td {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Knapsack Optimizer</h1>
+    
+    <form method="POST">
+        <label for="bag_capacity">Bag Capacity:</label><br>
+        <input type="number" id="bag_capacity" name="bag_capacity" required><br>
+
+        <label for="item_count">Number of Items:</label><br>
+        <input type="number" id="item_count" name="item_count" required><br>
+
+        <label for="item_values">Enter Values (comma-separated):</label><br>
+        <input type="text" id="item_values" name="item_values" required><br>
+
+        <label for="item_weights">Enter Weights (comma-separated):</label><br>
+        <input type="text" id="item_weights" name="item_weights" required><br>
+
+        <input type="submit" value="Optimize">
+    </form>
+
+    {% if optimal_value %}
+        <h2>Results</h2>
+        <p><strong>Optimal Value:</strong> {{ optimal_value }}</p>
+
+        <h3>Knapsack Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item/Weight</th>
+                    {% for i in range(capacity + 1) %}
+                    <th>{{ i }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(items + 1) %}
+                <tr>
+                    <td>Item {{ i }}</td>
+                    {% for j in range(capacity + 1) %}
+                    <td>{{ result_table[i][j] }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+</body>
+</html>

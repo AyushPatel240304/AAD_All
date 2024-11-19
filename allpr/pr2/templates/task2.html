@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fibonacci Calculation</title>
+  </head>
+  <body>
+    <h1>Fibonacci Calculation</h1>
+    <form method="post">
+      <label for="n">Enter a value for n:</label>
+      <input type="number" id="n" name="n" required />
+      <button type="submit">Calculate</button>
+    </form>
+    <h2>Results for n = {{ n }}:</h2>
+    <p>
+      Iterative Fibonacci Result: {{ iterative_data[0] }} (Time taken: {{
+      iterative_data[1] }} seconds)
+    </p>
+    <p>
+      Recursive Fibonacci Result: {{ recursive_data[0] }} (Time taken: {{
+      recursive_data[1] }} seconds)
+    </p>
+    <p>Recursive calculation took too long or exceeded limits.</p>
+    <p style="color: red">{{ error }}</p>
+    <h2>Execution Time Comparison</h2>
+    <img
+      src="{{ url_for('practical_2') }}"
+      alt="Execution Time
+ Comparison"
+    />
+  </body>
+</html>

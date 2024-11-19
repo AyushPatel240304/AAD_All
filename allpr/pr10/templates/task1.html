@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .result-table {
+            margin-top: 20px;
+        }
+        .graph-container {
+            margin-top: 20px;
+        }
+        .graph-container img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for Employees</h1>
+        <form action="/task1" method="POST" class="form-inline">
+            <div class="form-group mb-2">
+                <label for="key" class="mr-2">Key:</label>
+                <select name="key" id="key" class="form-control">
+                    <option value="id">ID</option>
+                    <option value="name">Name</option>
+                    <option value="salary">Salary</option>
+                    <option value="age">Age</option>
+                    <option value="mobile">Mobile</option>
+                    <option value="designation">Designation</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="value" class="mr-2">Value:</label>
+                <input type="text" name="value" id="value" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+
+        {% if linear_result %}
+            <div class="result-table">
+                <h2>Linear Search Result</h2>
+                <p>{{ linear_result }}</p>
+            </div>
+        {% endif %}
+
+        {% if binary_result %}
+            <div class="result-table">
+                <h2>Binary Search Result</h2>
+                <p>{{ binary_result }}</p>
+            </div>
+        {% endif %}
+
+        {% if linear_graph_url %}
+            <div class="graph-container">
+                <h2>Linear Search Time Complexity</h2>
+                <img src="data:image/png;base64,{{ linear_graph_url }}">
+            </div>
+        {% endif %}
+
+        {% if binary_graph_url %}
+            <div class="graph-container">
+                <h2>Binary Search Time Complexity</h2>
+                <img src="data:image/png;base64,{{ binary_graph_url }}">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

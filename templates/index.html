@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>AAD Practicals</title>
+</head>
+<body>
+    <h1>All AAD Practicals</h1>
+    <div class="buttons-container">
+        <!-- Generate 12 buttons -->
+        {% for i in range(1, 13) %}
+        <a href="{{ url_for('practical_redirect', practical_id=i) }}">
+            <button>
+                <div class="button_top">Practical {{ i }}</div>
+            </button>
+        </a>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Chef Comparison</title> 
+    <link rel="stylesheet" href="../static/task1.css"> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h1>Chef Comparison</h1> 
+        <form action="/compare" method="post"> 
+            <div class="chef-scores" id="chef1"> 
+                <h2>Enter the scores for Chef 1</h2> 
+                <label for="chef1-presentation">Presentation:</label> 
+                <input type="number" name="chef1_presentation" min="0" max="100" 
+required> 
+                <label for="chef1-taste">Taste:</label> 
+                <input type="number" name="chef1_taste" min="0" max="100" 
+required> 
+                <label for="chef1-hygiene">Hygiene:</label> 
+                <input type="number" name="chef1_hygiene" min="0" max="100" 
+required> 
+            </div> 
+ 
+            <div class="chef-scores" id="chef2"> 
+                <h2>Enter the scores for Chef 2</h2> 
+                <label for="chef2-presentation">Presentation:</label> 
+                <input type="number" name="chef2_presentation" min="0" max="100" 
+required> 
+                <label for="chef2-taste">Taste:</label> 
+                <input type="number" name="chef2_taste" min="0" max="100" 
+required> 
+                <label for="chef2-hygiene">Hygiene:</label> 
+                <input type="number" name="chef2_hygiene" min="0" max="100" 
+required> 
+            </div> 
+            <button type="submit">Compare</button> 
+        </form> 
+    </div> 
+</body> 
+</html> 

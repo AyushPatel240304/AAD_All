@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    
+    <title>Shortest Path Finder</title>
+</head>
+<body>
+    <h1>Find Shortest Path Between Cities</h1>
+    <form action="/calculate" method="POST">
+        <label for="start_city">Enter the Starting City:</label>
+        <select name="start_city" id="start_city">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+        </select>
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+</html>

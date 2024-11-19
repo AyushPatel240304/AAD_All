@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculation Methods</title>
+</head>
+<body>
+    <h1>Sum Calculation Methods</h1>
+    <form method="post" action="/">
+        <label for="N">Enter a value for N:</label>
+        <input type="text" id="N" name="N" required>
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if N is not none %}
+        <h2>Results for N = {{ N }}</h2>
+        {% if loop_data %}
+            <p>Sum using loop: {{ loop_data[0] }} (Time taken: {{ loop_data[1] }} seconds)</p>
+        {% endif %}
+        {% if equation_data %}
+            <p>Sum using equation: {{ equation_data[0] }} (Time taken: {{ equation_data[1] }} seconds)</p>
+        {% endif %}
+        {% if recursion_data %}
+            <p>Sum using recursion: {{ recursion_data[0] }} 
+            {% if recursion_data[1] is not none %}
+                (Time taken: {{ recursion_data[1] }} seconds)
+            {% else %}
+                (Skipped due to recursion limit)
+            {% endif %}
+            </p>
+        {% endif %}
+    {% endif %}
+
+    <h2>Time Complexity Graphs</h2>
+    <img src="{{ url_for('practical_2') }}" alt="Time Complexity Graphs">
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greedy Knapsack Problem Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+        }
+        .result h2 {
+            color: #28a745;
+        }
+        .result p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Greedy Knapsack Problem Solver</h1>
+
+        <form action="/" method="post">
+            <label for="profits">Enter Profits:</label>
+            <input type="text" id="profits" name="profits" required>
+
+            <label for="weights">Enter Weights:</label>
+            <input type="text" id="weights" name="weights" required>
+
+            <label for="max_weight">Enter Max Weight of Knapsack:</label>
+            <input type="text" id="max_weight" name="max_weight" required>
+
+            <input type="submit" value="Calculate">
+        </form>
+
+        <!-- Display result only if values are available -->
+        {% if max_profit is not none %}
+            <div class="result">
+                <h2>Result</h2>
+                <p><strong>Sorted Profits:</strong> {{ sorted_profits }}</p>
+                <p><strong>Sorted Weights:</strong> {{ sorted_weights }}</p>
+                <p><strong>Sorted Ratio:</strong> {{ sorted_ratio }}</p>
+                <p><strong>Items Used:</strong> {{ items_used }}</p>
+                <p><strong>Maximum Profit:</strong> {{ max_profit }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

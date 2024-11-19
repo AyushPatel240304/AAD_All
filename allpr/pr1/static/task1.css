@@ -1,0 +1,54 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #262626;
+} 
+ 
+.container { 
+    max-width: 600px; 
+    margin: auto; 
+    padding: 20px; 
+    text-align: center; 
+    color: antiquewhite;
+    font: bold;
+    font-weight: 100;
+} 
+ 
+.chef-scores { 
+    margin-bottom: 20px; 
+    color: antiquewhite;
+} 
+ 
+.chef-scores h2 { 
+    font-size: 1.2em; 
+    margin-bottom: 10px; 
+} 
+ 
+.chef-scores label { 
+    display: block; 
+    margin-top: 10px; 
+} 
+ 
+.chef-scores input { 
+    width: calc(100% - 20px); 
+    padding: 5px; 
+    margin-top: 5px; 
+    border-radius: 10px;
+    background-color: black;
+    color: antiquewhite;
+    
+} 
+
+.chef-scores ::before{
+    background-color: black;
+}
+
+button { 
+    padding: 10px 20px; 
+    font-size: 1em; 
+    cursor: pointer; 
+} 
+ 
+.results { 
+    margin-top: 20px; 
+    font-size: 1.2em; 
+} 

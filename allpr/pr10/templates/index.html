@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Huffman Coding</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Huffman Coding</h1>
+        <form method="POST">
+            <label for="char_freq">Character Frequencies (Format: A:0.5, B:0.35, C:0.1, ...):</label>
+            <input type="text" id="char_freq" name="char_freq" placeholder="e.g., A:0.5, B:0.35" required>
+
+            <label for="input_text">Enter Text to Encode/Decode:</label>
+            <input type="text" id="input_text" name="input_text" placeholder="e.g., CAD-BE" required>
+
+            <button type="submit" name="action" value="encode">Encode</button>
+            <button type="submit" name="action" value="decode">Decode</button>
+        </form>
+
+        <div class="huffman-codes">
+            <h2>Huffman Codes</h2>
+            <ul>
+                {% for char, code in huffman_codes.items() %}
+                <li><strong>{{ char }}:</strong> {{ code }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if encoded_text %}
+        <div class="result">
+            <h2>Encoded Text</h2>
+            <p>{{ encoded_text }}</p>
+        </div>
+        {% endif %}
+
+        {% if decoded_text %}
+        <div class="result">
+            <h2>Decoded Text</h2>
+            <p>{{ decoded_text }}</p>
+        </div>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="error-messages">
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
